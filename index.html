@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¿Cuándo armamos los muñequitos?</title>
+  <title>¿Armamos los muñequitos?</title>
   <style>
     body {
       margin: 0;
@@ -11,53 +11,83 @@
       font-family: 'Arial', sans-serif;
       color: #fff;
       text-align: center;
+      font-size: 20px;
     }
 
     .title {
       margin-top: 30px;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: bold;
       color: #00ffcc;
       text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
     }
 
-    .image-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      margin: 40px 20px;
+    .buttons {
+      margin-top: 40px;
     }
 
-    .image-container img {
-      width: 80%;
-      max-width: 350px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffcc;
     }
 
-    .image-container img:nth-child(2) {
-      animation-delay: 1s;
+    #dateInput {
+      margin-top: 20px;
+      display: none;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    input[type="date"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <div class="title">¿Cuándo armamos los muñequitos?</div>
+  <div class="title">¿Armamos los muñequitos?</div>
 
-  <div class="image-container">
-    <!-- Imagen de Sanji -->
-    <img src="https://i.imgur.com/3dXt13M.jpg" alt="Sanji de One Piece">
-
-    <!-- Imagen animada de Deadpool -->
-    <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" alt="Deadpool animado">
+  <div class="buttons">
+    <button onclick="mostrarFecha()">Sí</button>
+    <button onclick="alert('¡Otra vez será!')">No</button>
   </div>
+
+  <div id="dateInput">
+    <p>Elige una fecha:</p>
+    <input type="date" id="fecha">
+    <br>
+    <a id="whatsappLink" href="#" target="_blank">Enviar por WhatsApp</a>
+  </div>
+
+  <script>
+    function mostrarFecha() {
+      document.getElementById('dateInput').style.display = 'block';
+      const fechaInput = document.getElementById('fecha');
+      const link = document.getElementById('whatsappLink');
+      fechaInput.addEventListener('change', () => {
+        const fecha = fechaInput.value;
+        const mensaje = `¡Hola! Elegí esta fecha para armar los muñequitos: ${fecha}`;
+        link.href = `https://wa.me/573017004532?text=${encodeURIComponent(mensaje)}`;
+      });
+    }
+  </script>
 </body>
 </html>
