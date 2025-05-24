@@ -10,36 +10,58 @@
       background-image: url('https://i0.wp.com/ovicio.com.br/wp-content/uploads/2022/11/20221109-sanji-onepiece.jpg?resize=555%2C555&ssl=1');
       background-size: cover;
       background-position: center;
+      filter: brightness(0.7) blur(1px);
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      color: white;
-      text-shadow: 2px 2px 8px #000;
       font-family: sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      text-shadow: 3px 3px 10px black;
     }
 
     .heart {
-      font-size: 150px;
+      font-size: 200px;
       color: red;
-      animation: pulse 1.5s infinite;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
 
     h1 {
-      font-size: 50px;
-      margin-top: 20px;
+      font-size: 60px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <div class="heart">❤️</div>
-  <h1>Ten un lindo día</h1>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="heart">❤️</div>
+    <h1>Ten un lindo día</h1>
+  </div>
 </body>
 </html>
