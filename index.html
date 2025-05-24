@@ -7,58 +7,77 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(180deg, #000000, #1a1a1a);
+      height: 100vh;
+      background: linear-gradient(45deg, #ff0066, #00ccff, #6600ff, #ffcc00);
+      background-size: 600% 600%;
+      animation: gradient 10s ease infinite;
       font-family: 'Arial', sans-serif;
       color: #fff;
       text-align: center;
-      font-size: 20px;
+      font-size: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .title {
-      margin-top: 30px;
-      font-size: 2.2em;
+      font-size: 3em;
       font-weight: bold;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      color: #ffffff;
+      text-shadow: 0 0 15px #000;
+      margin-bottom: 40px;
     }
 
     .buttons {
-      margin-top: 40px;
+      position: relative;
     }
 
     button {
       background-color: #00ffcc;
       color: #000;
       border: none;
-      padding: 15px 30px;
+      padding: 20px 40px;
       margin: 10px;
-      font-size: 1em;
+      font-size: 1.2em;
       cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00ffcc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ffcc;
+      transition: all 0.3s ease;
     }
 
     #dateInput {
-      margin-top: 20px;
+      margin-top: 30px;
       display: none;
     }
 
     input[type="date"] {
-      padding: 10px;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 6px;
       border: none;
-      font-size: 1em;
+      font-size: 1.2em;
     }
 
     a {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 25px;
       background-color: #25D366;
       color: white;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1em;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      box-shadow: 0 0 10px #25D366;
+    }
+
+    .no-button {
+      position: absolute;
     }
   </style>
 </head>
@@ -67,7 +86,7 @@
 
   <div class="buttons">
     <button onclick="mostrarFecha()">Sí</button>
-    <button onclick="alert('¡Otra vez será!')">No</button>
+    <button class="no-button" id="noBtn" onclick="moverBoton()">No</button>
   </div>
 
   <div id="dateInput">
@@ -87,6 +106,15 @@
         const mensaje = `¡Hola! Elegí esta fecha para armar los muñequitos: ${fecha}`;
         link.href = `https://wa.me/573017004532?text=${encodeURIComponent(mensaje)}`;
       });
+    }
+
+    function moverBoton() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.floor(Math.random() * 80); // hasta 80% del ancho
+      const y = Math.floor(Math.random() * 60); // hasta 60% del alto
+      btn.style.left = `${x}%`;
+      btn.style.top = `${y}%`;
+      alert('¡Otra vez será!');
     }
   </script>
 </body>
