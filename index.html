@@ -40,7 +40,7 @@
 
     .image-container img {
       max-width: 95vw;
-      max-height: 400px;
+      max-height: 500px; /* Aumentado */
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
@@ -119,7 +119,7 @@
       const link = document.getElementById('whatsappLink');
       fechaInput.addEventListener('change', () => {
         const fecha = fechaInput.value;
-        const mensaje = `¡Hola! Elegí esta fecha para armar los muñequitos: ${fecha}`;
+        const mensaje = `Quiero que los armemos el ${fecha}`;
         link.href = `https://wa.me/573017004532?text=${encodeURIComponent(mensaje)}`;
       });
     }
