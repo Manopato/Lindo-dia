@@ -8,16 +8,16 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(45deg, #ff0066, #00ccff, #6600ff, #ffcc00);
+      background: linear-gradient(45deg, #ff4d6d, #ff80ab, #ff99c8, #ffc0cb);
       background-size: 600% 600%;
-      animation: gradient 10s ease infinite;
+      animation: gradient 12s ease infinite;
       font-family: 'Arial', sans-serif;
       color: #fff;
       text-align: center;
       font-size: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
     }
 
@@ -28,11 +28,23 @@
     }
 
     .title {
+      margin-top: 40px;
       font-size: 3em;
       font-weight: bold;
       color: #ffffff;
       text-shadow: 0 0 15px #000;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      margin-bottom: 30px;
+    }
+
+    .image-container img {
+      max-width: 90vw;
+      max-height: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     }
 
     .buttons {
@@ -84,6 +96,10 @@
 <body>
   <div class="title">¿Armamos los muñequitos?</div>
 
+  <div class="image-container">
+    <img src="https://i.pinimg.com/736x/bb/39/47/bb39474576d8708df94c0d64613a3f30.jpg" alt="Imagen decorativa">
+  </div>
+
   <div class="buttons">
     <button onclick="mostrarFecha()">Sí</button>
     <button class="no-button" id="noBtn" onclick="moverBoton()">No</button>
@@ -110,11 +126,10 @@
 
     function moverBoton() {
       const btn = document.getElementById('noBtn');
-      const x = Math.floor(Math.random() * 80); // hasta 80% del ancho
-      const y = Math.floor(Math.random() * 60); // hasta 60% del alto
+      const x = Math.floor(Math.random() * 80); 
+      const y = Math.floor(Math.random() * 60); 
       btn.style.left = `${x}%`;
       btn.style.top = `${y}%`;
-      alert('¡Otra vez será!');
     }
   </script>
 </body>
