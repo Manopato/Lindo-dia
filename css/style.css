@@ -1,57 +1,88 @@
-* {
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    background: #111;
-    font-family: Arial, sans-serif;
+body{
+    background:linear-gradient(135deg,#0d0d0d,#1a1a1a);
+    font-family:Arial,sans-serif;
+    color:white;
 }
 
-#galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
-    padding: 10px;
+.header{
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#00c853,#00e676);
+    box-shadow:0 0 30px rgba(0,255,120,.4);
 }
 
-#galeria img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
+.header h1{
+    font-size:52px;
+    margin-bottom:15px;
+    text-shadow:0 0 20px #00ff88;
 }
 
-#galeria img:hover {
-    transform: scale(1.02);
+.header p{
+    font-size:22px;
+    margin:8px 0;
 }
 
-/* Imagen grande */
-#visor {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.flecha{
+    margin-top:20px;
+    font-size:30px;
+    animation:bajar 1s infinite;
 }
 
-#visor img {
-    max-width: 95%;
-    max-height: 90vh;
-    object-fit: contain;
+@keyframes bajar{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(10px);
+    }
 }
 
-#cerrar {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
+#galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+#galeria img{
+    width:100%;
+    border-radius:15px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 20px rgba(0,255,120,.25);
+}
+
+#galeria img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(0,255,120,.6);
+}
+
+#visor{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+#visor img{
+    max-width:90%;
+    max-height:90%;
+}
+
+#cerrar{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:45px;
+    color:white;
+    cursor:pointer;
 }
