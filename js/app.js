@@ -48,30 +48,17 @@ function agregarImagen(ruta, numero) {
 
 
 // =====================================
-// IMÁGENES ANTERIORES
-// 1 (1).jpeg hasta 1 (74).jpeg
+// CARGA DE IMÁGENES (NUEVO FORMATO: 001)
 // =====================================
 
-for (let i = 1; i <= 74; i++) {
+// Reemplaza el 100 por la cantidad total real de imágenes en tu carpeta
+const totalImagenes = 122;
+
+for (let i = 1; i <= totalImagenes; i++) {
 
     agregarImagen(
-        "imagenes/1 (" + i + ").jpeg",
+        "imagenes/001 (" + i + ").jpeg",
         i
-    );
-
-}
-
-
-// =====================================
-// 47 IMÁGENES NUEVAS
-// 74 (1).jpeg hasta 74 (47).jpeg
-// =====================================
-
-for (let i = 1; i <= 47; i++) {
-
-    agregarImagen(
-        "imagenes/74 (" + i + ").jpeg",
-        74 + i
     );
 
 }
